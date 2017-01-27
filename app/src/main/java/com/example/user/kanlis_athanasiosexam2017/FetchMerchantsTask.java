@@ -32,10 +32,13 @@ public class FetchMerchantsTask extends AsyncTask<String, Void, ArrayList<Mercha
     }
 
     private ArrayList<Merchant> getMerchantsFromJson(String merchantJsonStr) throws JSONException {
+
+
         ArrayList<Merchant> merchants = new ArrayList<>();
         try{
             JSONArray merchantsArray = new JSONArray(merchantJsonStr);
-            //.....
+
+
 
 
 
@@ -123,7 +126,7 @@ public class FetchMerchantsTask extends AsyncTask<String, Void, ArrayList<Mercha
     protected void onPostExecute(ArrayList<Merchant> merchants) {
         if(merchants.size() > 0){
             this.merchantAdapter.clear();
-            //.....
+
         }
     }
 }
