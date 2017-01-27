@@ -56,6 +56,7 @@ public class MerchantAdapter extends ArrayAdapter<Merchant> {
         public final TextView legalNameView;
         public final TextView categoryNameView;
         public final TextView addressView;
+        public final TextView ratingTextView;
         public final ImageView ratingView;
 
         public ViewHolder(View view){
@@ -64,6 +65,7 @@ public class MerchantAdapter extends ArrayAdapter<Merchant> {
             legalNameView = (TextView)view.findViewById(R.id.list_item_merchant_legal_name);
             categoryNameView = (TextView)view.findViewById(R.id.list_item_merchant_category_name);
             addressView = (TextView)view.findViewById(R.id.list_item_merchant_address);
+            ratingTextView = (TextView)view.findViewById(R.id.list_item_merchant_rating_text);
             ratingView = (ImageView)view.findViewById(R.id.list_item_merchant_rating);
 
 

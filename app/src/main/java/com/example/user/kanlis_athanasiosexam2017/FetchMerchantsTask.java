@@ -1,11 +1,14 @@
 package com.example.user.kanlis_athanasiosexam2017;
 
+import android.content.ContentValues;
+import android.media.Image;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,6 +19,7 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Vector;
 
 /**
  * Created by user on 27/1/2017.
@@ -33,10 +37,17 @@ public class FetchMerchantsTask extends AsyncTask<String, Void, ArrayList<Mercha
 
     private ArrayList<Merchant> getMerchantsFromJson(String merchantJsonStr) throws JSONException {
 
+        final String merchant_legal_name = "legalName";
+        final String merchant_category ="merchantCategory";
+        final String merchant_address = "contractPoint";
+        final String merchant_rating ="aggerateRating";
 
         ArrayList<Merchant> merchants = new ArrayList<>();
         try{
+
             JSONArray merchantsArray = new JSONArray(merchantJsonStr);
+
+            Vector<ContentValues> cVVector = new Vector<ContentValues>(merchantsArray.length());
 
 
 
@@ -64,7 +75,7 @@ public class FetchMerchantsTask extends AsyncTask<String, Void, ArrayList<Mercha
 
         try {
             final String YUMMY_MERCHANTS_URL =
-                    "/Merchant/index.json?$orderby=dateCreated%20desc";
+                    "/Merchant/index.json?$orderby=id%20desc";
 
             Uri builtUri = Uri.parse(YUMMY_BASE_DOMAIN+YUMMY_MERCHANTS_URL);
 
@@ -120,6 +131,7 @@ public class FetchMerchantsTask extends AsyncTask<String, Void, ArrayList<Mercha
             }
         }
         return null;
+
     }
 
 
