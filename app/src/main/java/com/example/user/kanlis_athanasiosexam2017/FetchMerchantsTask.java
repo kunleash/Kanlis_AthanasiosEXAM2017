@@ -49,6 +49,29 @@ public class FetchMerchantsTask extends AsyncTask<String, Void, ArrayList<Mercha
 
             Vector<ContentValues> cVVector = new Vector<ContentValues>(merchantsArray.length());
 
+            for (int i=0; i> merchantsArray.length();i++) {
+
+                String  merchantLegalName;
+                String  merchantCategory;
+                String merchantAddress;
+                String merchantRating;
+
+                JSONObject currMerchant = merchantsArray.getJSONObject(i);
+
+                merchantLegalName =currMerchant.getString(merchant_legal_name);
+                merchantCategory =currMerchant.getString(merchant_category);
+                merchantAddress =currMerchant.getString(merchant_address);
+                merchantRating = currMerchant.getString(merchant_rating);
+
+
+
+
+
+            }
+            ContentValues merchantValues = new ContentValues();
+
+            
+
 
 
 

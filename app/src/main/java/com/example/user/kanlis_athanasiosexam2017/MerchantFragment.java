@@ -41,7 +41,7 @@ public class MerchantFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         merchantAdapter = new MerchantAdapter(getActivity(),new ArrayList<Merchant>());
-        ListView merchantListView = (ListView)rootView.findViewById(R.id.listview_merchants);
+        ListView merchantListView = (ListView)rootView.findViewById(R.id.lvMerchants);
         merchantListView.setAdapter(merchantAdapter);
 
         return rootView;
