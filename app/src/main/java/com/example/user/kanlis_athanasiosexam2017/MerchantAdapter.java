@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -43,7 +45,9 @@ public class MerchantAdapter extends ArrayAdapter<Merchant> {
 
         viewHolder.imageView.setImageResource(R.drawable.yummy_logo);
         viewHolder.legalNameView.setText(m.getLegalName());
-        //.....
+        viewHolder.categoryNameView.setText(m.getCategory());
+        viewHolder.addressView.setText(m.getAddress());
+        viewHolder.ratingView.setImageResource(R.drawable.star);
         return  rowView;
     }
 
@@ -52,12 +56,21 @@ public class MerchantAdapter extends ArrayAdapter<Merchant> {
         public final TextView legalNameView;
         public final TextView categoryNameView;
         public final TextView addressView;
-        public final TextView ratingView;
+        public final ImageView ratingView;
 
         public ViewHolder(View view){
+            //SYMPLIRWSE TA!!!!
             imageView = (ImageView)view.findViewById(R.id.list_item_merchant_image);
             legalNameView = (TextView)view.findViewById(R.id.list_item_merchant_legal_name);
-            //.....
+            categoryNameView = (TextView)view.findViewById(R.id.list_item_merchant_category_name);
+            addressView = (TextView)view.findViewById(R.id.list_item_merchant_address);
+            ratingView = (ImageView)view.findViewById(R.id.list_item_merchant_rating);
+
+
+
+
+
+
         }
     }
 }

@@ -12,4 +12,19 @@ public class Merchant {
     private String address;
     private String imageUrl;
     private String review;
+
+    public String getLegalName() {
+
+        return legalName;
+    }
+
+    public String getCategory() {
+
+        return category;
+    }
+
+    public String getAddress() {
+
+        return address;
+    }
 }

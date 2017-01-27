@@ -1,5 +1,22 @@
 package com.example.user.kanlis_athanasiosexam2017;
 
+import android.net.Uri;
+import android.os.AsyncTask;
+import android.util.Log;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.util.ArrayList;
+
 /**
  * Created by user on 27/1/2017.
  */
@@ -34,7 +51,7 @@ public class FetchMerchantsTask extends AsyncTask<String, Void, ArrayList<Mercha
         }
     }
 
-    @Override
+
     protected ArrayList<Merchant> doInBackground(String... params) {
 
         HttpURLConnection urlConnection = null;
@@ -78,6 +95,8 @@ public class FetchMerchantsTask extends AsyncTask<String, Void, ArrayList<Mercha
             }
             merchantJsonStr = buffer.toString();
             return  getMerchantsFromJson(merchantJsonStr);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
         } catch (IOException e) {
             Log.e(LOG_TAG, "Error ", e);
             // If the code didn't successfully get the weather data, there's no point in attempting
@@ -100,7 +119,7 @@ public class FetchMerchantsTask extends AsyncTask<String, Void, ArrayList<Mercha
         return null;
     }
 
-    @Override
+
     protected void onPostExecute(ArrayList<Merchant> merchants) {
         if(merchants.size() > 0){
             this.merchantAdapter.clear();
